@@ -1,0 +1,312 @@
+
+
+
+
+
+MACHINE LEARNING PROJECT
+FILM RECOMMENDER SYSTEM
+
+PROJECT REPORT
+
+
+Sushree S Swain
+5th Semester BTech 2023
+CV Raman Global University
+Odisha, India
+
+
+
+
+Dated: 7th October 2023
+
+
+CONTENTS
+1. Introduction to Recommender Systems
+2. How do Recommender Systems Work?
+3. Problem Statement
+4. Platform and Modules Required
+5. Coding 
+6. Advantages & Limitations of the Software
+7. Conclusion
+8. Bibliography & References
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Recommender Systems
+According to Wikipedia, a recommender system, or a recommendation system (sometimes replacing 'system' with a synonym such as a platform or engine), is a subclass of information filtering systems that provide suggestions for items most pertinent to a particular user.
+
+They are designed to help users discover relevant items or content from a lot of choices, such as movies, products, articles, music, or even potential friends on social media. These systems usually use machine learning algorithms to analyze user behavior, preferences, and historical interactions with the platform to make personalized recommendations.
+
+There are various types of recommender systems, with the two main categories being:
+1. Content-Based Recommender Systems: These systems recommend items based on their attributes and the user's historical preferences. 
+2. Collaborative Filtering Recommender Systems: Collaborative filtering techniques recommend items by identifying patterns and similarities in user behaviour. There are two subtypes within collaborative filtering:
+* User-Based Collaborative Filtering: Recommends items to a user based on the behaviour of similar users. If two users have liked similar items in the past, the system may suggest items liked by one user to the other.
+* Item-Based Collaborative Filtering: Recommends items to a user based on the similarity between items they have interacted with. 
+
+
+
+
+
+
+
+How do Recommender Systems Work?
+In a Machine Learning environment, recommender systems usually work in the following structured manner:
+
+Data Collection: Recommender systems begin by collecting data on users and items. We chose datasets that contain all the information that we require.
+
+Data Preprocessing: The collected data often requires preprocessing to handle missing values, noisy data, and outliers.
+
+Algorithm Selection: Recommender systems use various algorithms to make recommendations. We can choose Collaborating Filtering, Content Filtering, and even Deep Learning.
+
+Scoring and Ranking: After selecting an algorithm, the recommender system assigns scores to items based on their likelihood of being of interest to the user.
+
+Recommendation Generation: Finally, the recommender system generates a list of recommended items for the user.
+
+There can also be additional steps like scaling data, measuring the accuracy of the model, or even further preprocessing.
+
+
+
+
+
+
+
+
+
+
+
+Problem Statement
+We are building a Machine Learning model that can prompt the user for the name of a film, the name of any member of the cast such as an actor or a director, and even a particular genre, and the model with suggest to the user similar films based on their response. This is a very rudimentary step when it comes to building a very large-scale model as of Netflix and Amazon Prime. Our model will simply work on film recommendations when we prompt the name of a film, actor, director, or genre, we are not creating a full-fledged web application with user profiles and history, though they can be added further in a given instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Platform and Modules Required
+We will be using Jupyter Notebook for our Machine Learning Code and we will be using Python for the creation of a Streamlit virtual environment view. 
+
+We will be needing the following modules in Jupyter Notebook and Python:
+* Pandas
+* NumPy
+* Sklearn
+* Pickle
+Streamlit (for creating an app) 
+
+We will be using the TMDB Database as our dataset as it contains information about approximately 5000 films.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Coding
+We are using VSCode to run Jupyter Notebook and we have created a new file named as TMDBRecommender. 
+
+1. We will import the dataset by using NumPy and Pandas and specifying the path of the dataset stored on our local device.
+
+2. The dataset has two files, one for the names of the films and other information and one for the names of the crew.
+
+
+3. We will check our data for all the columns and other information such as the number of rows, and names of the columns if there are any missing values or any type of Alpha-numeric values.
+
+4. We will join the two datasets, the film dataset and the crew dataset on the basis of the common column or the ID column.
+
+ 
+5. After creating a single dataset out of the given two, we will select the columns that we have to remove in order to reduce the dimensionality of the data.
+
+6. In our code, we have removed the columns that indicate the budget, revenue, production company, and original title of the film as they are not heavily required for a recommender.
+
+
+7. We have removed certain rows that contain missing values as they were very small compared to the actual number of rows. (If the number of missing values would have been very high, it is not recommended to drop the rows.) 
+
+8. We will now try to create only 3 columns for our model, the film ID, name, and other information like the name of the actors, directors, genre, and overview.
+
+
+9. We will now merge all columns other than film name and ID into one column and it has been named “tags” specifying any other tags for our film rather than the name and ID.
+
+10. After creating only 3 columns, we will now combine all the names into one entity so that there will be no trouble for our model while searching for the names of any actor or director.
+
+
+11. The next step is to convert all the text into lowercase.
+
+12. All the information in the tag column about any particular film has been assigned its own array, so that grouping the information becomes easier for our model.
+
+
+13. We will now convert all these arrays into vectors so that we can calculate the distance of all the films on the basis of similar words and genres. 
+
+14. The most frequently used words are used to help our model know if two films are similar or not. 
+
+
+15. We will create a function that finds the angle between all the vectors with each other and return an array.
+
+16. Now finally we will create three functions, one is the recommender function on the basis of the name of a particular film, the other is the recommendations of a film based on the name of the actors or directors and the last function is to create a recommender function to suggest films on the basis of the genre.
+
+17. The final step is to import the Pickle module and create a read binary file that can be saved in our local device.
+
+18. Now we can go to PyCharm and we will import Streamlit to just create a virtual environment that can show how our recommender system works. 
+
+19. A drop-down menu and “show more recommendations” button have also been added.
+
+20. This code can be further modified into any other modifications if required.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyCharm Code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Advantages & Limitations of the Software
+This software is created using Jupyter Notebook and we have hardly used four to five modules. The code is very short and simple and it gives such a beautiful result.
+
+The limitations of this software are that it cannot recommend films based on user ratings or IMDb ratings which many users might prefer. This software is very simple and hasn’t been connected to the internet so we cannot access any other data, plus it cannot store user information and history.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Conclusion
+Recommender systems can be simple yet complex to build, depending on what we need. We can create recommender systems for almost all services, this was an example of a Film recommendation system. These systems help the user spend less time browsing and we can help them get their interests resolved easier which in turn also keeps them happy as we provide an excellent user experience for them.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bibliography & References
+http://www.google.com/
+https://www.wikipedia.org/
+http://github.com/
+https://stackoverflow.com/
+
+Find these project files on https://github.com/SushreeSwain/TMDBRecommender
+
+
+
+
+
+
+
+
+
